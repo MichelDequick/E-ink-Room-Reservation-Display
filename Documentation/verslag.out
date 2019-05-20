@@ -6,9 +6,9 @@
 \BOOKMARK [3][-]{subsubsection.4.1.1}{Database}{subsection.4.1}% 6
 \BOOKMARK [3][-]{subsubsection.4.1.2}{Wifi Access Point op Raspberry Pi}{subsection.4.1}% 7
 \BOOKMARK [3][-]{subsubsection.4.1.3}{Webserver en GET request}{subsection.4.1}% 8
-\BOOKMARK [2][-]{subsection.4.2}{communicatie tussen de mbed en de database}{section.4}% 9
-\BOOKMARK [3][-]{subsubsection.4.2.1}{de verbinding}{subsection.4.2}% 10
-\BOOKMARK [3][-]{subsubsection.4.2.2}{de gegevens}{subsection.4.2}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Communicatie tussen de mbed en de database}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.2.1}{De verbinding}{subsection.4.2}% 10
+\BOOKMARK [3][-]{subsubsection.4.2.2}{De gegevens}{subsection.4.2}% 11
 \BOOKMARK [1][-]{section.5}{Resultaten}{}% 12
 \BOOKMARK [1][-]{section.6}{In het vervolg}{}% 13
 \BOOKMARK [1][-]{section.7}{Conclusie}{}% 14

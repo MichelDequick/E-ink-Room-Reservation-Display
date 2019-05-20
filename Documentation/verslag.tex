@@ -281,23 +281,25 @@ De variabele \verb|$roomName| kunnen we nu gebruiken om een query uit te voeren 
 \newpage
 Na het ophalen van het roomID voeren we een SQL query uit om alle entries uit de events table te halen die doorgaan in het door ons opgevraagde lokaal. De resultaten van deze queries steken we dan in arrays, in de volgorde zoals ze uit de table gekomen zijn. Zo kunnen we gemakkelijk de verschillende variabelen opvragen door de indexen te gebruiken van de arrays. Alle elementen van een bepaald event bevinden zich namelijk op de plaats in de array met dezelfde index.De laatste stap is om via de courseID's de courseNames op te gaan vragen in de courses table en dan hebben we alle nodige info beschikbaar om terug te sturen naar de MBED.
 
+Voor we de gegevens opsturen zullen we alle gegevens in een JSON-file steken. Hiervoor maken we een object aan van het type Room. Zoals we kunnen zien in figuur \ref{fig:uml} heeft zo een object 4 objecten. Via de \verb|$myJson  = json_encode($room)| kunnen we het object dan omzetten naar een JSON variabele die we dan terugsturen met het commando \verb|echo "$myJson";|. Deze JSON-file met alle gegevens wordt dan op de MBED verwerkt.
+
 
 \newpage
 
-\subsection{communicatie tussen de mbed en de database}
+\subsection{Communicatie tussen de mbed en de database}
 
 Om het lessenrooster te kunnen printen heeft de mbed gegevens nodig van de database. Er moet dus gecommuniceerd worden tussen de mbed en de database. De mbed heeft de rol van client en vraagt dus die gegevens aan de database, die logischerwijs de rol van server heeft.
 \newline
 
 De communicatie gebeurt via wifi. Op de mbed zit een wi-fi module ESP-WROOM-02 Click \cite{ESP-WROOM-02} die in staat is de data te ontvangen en versturen. In het programma dat loopt op de mbed wordt gebruik gemaakt van 2 functies om gegevens te verkrijgen.
 
-\subsubsection{de verbinding}
+\subsubsection{De verbinding}
 
 Hoe wordt deze verbinding tot stand gebracht?
 
 De eerste functie \verb|init()| maakt verbinding met het wifi access point van de database en gaat als volgt te werk: eerst wordt gecontroleerd dat de mbed een wi-fi module heeft (dit is in ons geval de ESP-WROOM-02). Daarna probeert de mbed aan te melden bij de raspberry pi met een opgegeven \verb|WIFI_SSID| en het daarbij horende opgegeven \verb|WIFI_PASSWORD|. Deze  kunnen eenvoudig worden aangepast in een \verb|.json| file.
 
-\subsubsection{de gegevens}
+\subsubsection{De gegevens}
 
 Hoe worden de gegevens uit de database verkregen?
 
