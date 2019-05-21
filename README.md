@@ -1,7 +1,7 @@
 # E-ink-Room-Reservation-Display
 > Display schedule of room availability, time, subject
 
-![alt text](Documentation\Images\e-Paper_Display_proof_of_concept.jpg)
+![alt text](Documentation/Images/e-Paper_Display_proof_of_concept.jpg)
 
 ## Import project
 1. Clone repository `git clone https://github.com/MichelDequick/E-ink-Room-Reservation-Display.git`
