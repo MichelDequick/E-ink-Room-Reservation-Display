@@ -38,6 +38,8 @@
 \newpage
 
 \section{Probleemstelling}
+{\scriptsize Geschreven door Ine}
+\newline
 
 We willen een display maken voor klaslokalen die dynamisch kan veranderen per uur. 
 
@@ -136,6 +138,8 @@ Eink click, small and big display
 \newpage
 
 \section{Aanpak}
+{\scriptsize Geschreven door Ine}
+\newline
 
 Eerst hebben we alle deelopdrachten op een rijtje gezet en een planning gemaakt. Daarbij hebben we ook een taakverdeling gemaakt. 
 \newline
@@ -178,7 +182,10 @@ Om het verslag te maken heeft iedereen het deel ingevuld waar hij zelf meest aan
 \newpage
 
 \section{Implementatie}
-\subsection{Database en Wifi Access Point}
+\subsection{Database en Wifi Access Point} 
+{\scriptsize Geschreven door Baptiste}
+\newline
+
 Voor het opslaan van de gegevens is er een database opgezet op een Raspberry Pi model B+ door gebruik te maken van phpMyAdmin. Hier draait een SQL server op waarin alle gegevens voor de komende events van verschillende lokalen kunnen opgeslagen worden. Verder zijn alle gegevens van de courses er ook opgeslagen en de algemene info van de rooms. Om ervoor te zorgen dat onze MBED toegang kan krijgen tot deze database hebben we een Wifi Access Point (WAP) op de Raspberry Pi gezet, waarmee de MBED zich kan verbinden via een ESP8266 Wifi chip. Het opvragen van de gegevens door de mbed gebeurt via een GET request op de HTTP poort van de Raspberry Pi (poort 80).
  
 \subsubsection{Database}
@@ -287,6 +294,8 @@ Voor we de gegevens opsturen zullen we alle gegevens in een JSON-file steken. Hi
 \newpage
 
 \subsection{Communicatie tussen de mbed en de database}
+{\scriptsize Geschreven door Stijn}
+\newline
 
 Om het lessenrooster te kunnen printen heeft de mbed gegevens nodig van de database. Er moet dus gecommuniceerd worden tussen de mbed en de database. De mbed heeft de rol van client en vraagt dus die gegevens aan de database, die logischerwijs de rol van server heeft.
 \newline
@@ -306,6 +315,8 @@ Hoe worden de gegevens uit de database verkregen?
 De tweede functie \verb|get(IP_ADDRESS, ROOM)| geeft een \verb|JSON_STRING| terug met daarin alle gegevens voor één lokaal. Het \verb|IP address| en \verb|room number| wordt meegegeven met deze functie. Eerst wordt het GET request samengesteld met de gekregen waarden. Daarna wordt een TCPSocket geopend en gekoppeld aan de Wi-Fi interface, waarna een connectie wordt gelegd met de database. Als die connectie er is, wordt het GET request verstuurd naar de database, die daar dan normaal gezien op antwoordt. De mbed leest de data in en slaat ze op in een buffer. Dit is echter nog de ruwe data. De buffer wordt uitgelezen en enkel de nodige gegevens woren opgeslagen in een tweede buffer. Die laatste is een \verb|JSON_STRING| en wordt dus teruggegeven door de functie.
 
 \section{Resultaten}
+{\scriptsize Geschreven door Ine}
+\newline
 
 We kunnen uit de databank info van lokaal 02.85 filteren en in een tabel zetten. Zie figuur \ref{fig:vboutput}.
 
@@ -339,18 +350,22 @@ De database en het accesspoint waren relatief snel opgezet. Ook iets afbeelden o
 \newpage
 
 \section{In het vervolg}
+{\scriptsize Geschreven door Ine}
+\newline
 
 Als we dit project verder zouden uitwerken, zouden we een andere mbed en wifi module gebruiken. Nu hebben we veel tijd verloren met het zoeken naar hoe we iets moeten implementeren. We zouden kunnen werken met modules die we kennen, waardoor alles sneller zou kunnen gaan. 
 \newline
-\newline
+
 We hebben veel tijd verloren door te zoeken naar hoe we een framebuffer van heel het scherm kunnen maken. We dachten dat dat niet mogelijk was, dus hebben we een oplossing gezocht om een buffer van een deel van het scherm te maken. Dit was niet gemakkelijk en heeft veel tijd ingenomen. Achteraf hebben we gehoord dat het wel mogelijk is om heel het scherm in één keer up te daten. We zouden dus kunnen uitzoeken hoe dat werkt en het scherm op die manier implementeren, omdat het updaten van het scherm zo sneller zou gaan. 
 \newline
-\newline
+
 Verder zouden we ook tijdens het zoeken naar oplossingen proberen meer geduld te hebben. Als er problemen waren met dingen die we niet begrepen, zouden we moeten efficiënter zoeken naar oplossingen. We zouden kunnen één manier van werken proberen volledig uit te werken en te begrijpen, in plaats van telkens iets kleins niet lukt, een volledig nieuwe manier te zoeken.
 
 \newpage
 
 \section{Conclusie}
+{\scriptsize Geschreven door Ine}
+\newline
 
 We hebben een manier gevonden om op een energie zuinige manier een leslokaal dynamisch aan te duiden. We kunnen op een E-ink display aanduiden op welke uren van de dag het lokaal vrij is. Wanneer het lokaal niet vrij is, is duidelijk wie in het lokaal zit, welk vak er op dat moment gegeven wordt en hoe lang het nog zal duren voor het lokaal  weer vrij is.
 
