@@ -41,25 +41,25 @@
 {\scriptsize Geschreven door Ine}
 \newline
 
-We willen een display maken voor klaslokalen die dynamisch kan veranderen per uur. 
+De bedoeling van dit project is om een display te maken voor klaslokalen, dat dynamisch kan veranderen per uur. 
 
-Op het scherm moeten verschillende zaken komen: het nummer van het klaslokaal, de datum, op welke uren het lokaal bezet is op die dag, welk vak op dit moment gegeven wordt en de docent die dit vak geeft.
+Op het scherm moeten verschillende zaken komen: het nummer van het klaslokaal, de datum, op welke uren het lokaal bezet is op een bepaalde dag, welk vak op dit moment gegeven wordt en de docent van dit vak.
 \newline
 
-Er zijn verschillende dingen waar we rekening mee moeten houden om dit te realiseren:
+Er zijn verschillende zaken waar rekening mee gehouden moet worden om dit te realiseren:
 
-We moeten een E-ink display implementeren. Hierbij moeten we bekijken als hier burn-in of ghosting kan optreden. Ook moeten we rekening houden met de grootte van de memory in de display.
+Er moet een E-ink display geïmplementeerd worden. Hierbij wordt bekeken als er burn-in of ghosting kan optreden. Ook wordt rekening gehouden met de grootte van de memory in de display.
 
-Er moet een databank opgezet worden waar alle data van de lokalen in opgeslagen is. Deze databank moet bereikbaar zijn via wifi.
+Er moet een databank opgezet worden waar alle data van de lokalen in opgeslagen is. Deze databank is bereikbaar via wifi.
 
 Er moet een connectie gemaakt worden via een wifi module van de databank naar de display.
 \newline
 
-We gebruiken hiervoor een E-ink display omdat dit het meest energiezuinig is. Dit komt omdat de display enkel voeding nodig heeft om het scherm te veranderen. We moeten het scherm maar om het uur aanpassen, dus alle tijd daartussen heeft een E-ink display geen voeding nodig.
+Een E-ink display krijgt hier de voorkeur, omdat dit het meest energiezuinig is. Dit is zo omdat de display enkel voeding nodig heeft om het scherm te veranderen. Het scherm moet maar om het uur aangepast worden, dus alle tijd daartussen heeft een E-ink display geen voeding nodig.
 Een ander voordeel van een E-ink display is dat het geen licht uitzendt, maar het reflecteert licht zoals een blad papier. Hierdoor is het gemakkelijker leesbaar, ook als er in de omgeving veel licht is. 
 \newline
 
-De eenvoudigste E-ink display is de "two pigment ink system". Dit bestaat uit kleine gebieden die dipolen zijn (deze worden gebruikt als de pixels van de afbeelding). De positieve kant van de gebieden bestaat uit wit pigment, de negatieve kant is zwart pigment. Deze gebieden bevinden zich in een bubbel van olie zodat ze gemakkelijk kunnen omdraaien, en zitten tussen transparante elektrode lagen. Wanneer nu op die elektrode lagen een spanning wordt gezet, kan bepaald worden welke delen van het scherm zwart zijn, en welke wit. Op die manier kan een zwart-wit afbeelding op de display geprogrammeerd worden. (zie afbeelding \ref{fig:2psystem} ).
+De eenvoudigste E-ink display is de "two pigment ink system". Dit bestaat uit kleine gebieden die dipolen zijn (deze worden gebruikt als de pixels van de afbeelding). De positieve kant van de gebieden bestaat uit wit pigment, de negatieve kant is zwart pigment. Deze gebieden bevinden zich in een bubbel van olie zodat ze gemakkelijk kunnen omdraaien, en zitten tussen transparante elektrode lagen. Wanneer nu op die elektrodelagen een spanning wordt gezet, kan bepaald worden welke delen van het scherm zwart zijn, en welke wit. Op die manier kan een zwart-wit afbeelding op de display geprogrammeerd worden. (zie afbeelding \ref{fig:2psystem} ).
 
 \begin{figure}[h]
 	\centering
@@ -95,10 +95,10 @@ Er bestaat ook een "Three pigment ink system". Dit werkt op ongeveer dezelfde ma
 	\label{fig:3psystem}
 \end{figure}
 
-De E-ink display die wij gaan gebruiken, gebruikt het three pigment ink system. Op deze manier kunnen we op een overzichtelijke manier op een tijdslijn aanduiden op welke uren het lokaal bezet is.
+De E-ink display die in dit project gebruikt wordt, gebruikt het three pigment ink system. Op deze manier kan op een overzichtelijke manier op een tijdslijn aangeduid worden op welke uren het lokaal bezet is.
 \newline
 
-Daarnaast bestaat er ook een "Advanced color ePaper". Hierbij kunnen nog meer kleuren op het scherm afgebeeld worden. (zie afbeelding \ref{fig:ACeP} ). Dit gebruiken wij niet in dit project. Dit systeem gebruikt 4 kleuren: cyaan, magenta, geel en wit.  \newline
+Daarnaast bestaat er ook een "Advanced color ePaper". Hierbij kunnen nog meer kleuren op het scherm afgebeeld worden. (zie afbeelding \ref{fig:ACeP} ). Dit wordt in dit project niet gebruikt. Dit systeem gebruikt 4 kleuren: cyaan, magenta, geel en wit.  \newline
 
 \begin{figure}[h]
 	\centering
@@ -121,7 +121,7 @@ bron figuren: \cite{E-ink}.
 bron werking ACeP: \cite{ACeP}.
 \newline
 \newline
-Dit is het materiaal dat we gebruikt hebben:
+Dit is het materiaal dat gebruikt werd:
 \newline
 Mbed FRDM-K64F
 
@@ -141,7 +141,7 @@ Eink click, small and big display
 {\scriptsize Geschreven door Ine}
 \newline
 
-Eerst hebben we alle deelopdrachten op een rijtje gezet en een planning gemaakt. Daarbij hebben we ook een taakverdeling gemaakt. 
+Eerst hebben we alle deelopdrachten op een rijtje gezet en een planning gemaakt. Daarbij maakten we ook een taakverdeling op. 
 \newline
 \newline
 Dit zijn de grootste taken:
@@ -149,22 +149,22 @@ Dit zijn de grootste taken:
 \newline
 Een library maken voor de display – Michel
 \newline
-Eerst moesten we bekijken hoe we een afbeelding op de display konden krijgen. Op het internet vonden we een voorbeeld van een E-ink display die gemaakt was met een Arduino. Wij maken gebruik van een mbed, dus we hebben de code moeten aanpassen. 
-Als eerste hebben we geprobeerd om een afbeelding op de display te zetten en om een afbeelding die er op staat te kunnen wissen.
-Daarna hebben we een ontwerp gemaakt van wat we allemaal op het scherm wilden zetten en waar. We hebben dan ook geprobeerd om dit op de display te krijgen.
+Eerst werd er bekeken hoe we een afbeelding op de display konden krijgen. Op het internet vonden we een voorbeeld van een E-ink display die gemaakt was met een Arduino. Wij maken gebruik van een mbed, dus we moesten de code aanpassen. 
+Als eerste hebben we geprobeerd om een afbeelding op de display te zetten én om een afbeelding die er op staat uit te wissen.
+Daarna maakten we een ontwerp van wat we allemaal op het scherm wilden hebben en waar juist. We hebben dan ook geprobeerd om dit op de display te krijgen.
 \newline
 \newline
 Een database opstellen met een wifi access point – Baptiste
 \newline
-We hebben een database opgesteld op een Raspberry Pi. Daar hebben we ook een wifi access point op geïmplementeerd zodat de display met de databank kan communiceren.
-Eens de databank opgevuld was konden we testen als we de data konden in een tabel zetten per lokaal.
+We hebben een database opgesteld op een Raspberry Pi. Daar werd ook een wifi access point op geïmplementeerd zodat de display met de databank kan communiceren.
+Eens de databank opgevuld was kon getest worden als de data in een tabel per lokaal gezet kon worden.
 \newline
 \newline
 Wifi connectiviteit en JSON parser maken – Stijn
 \newline
-Het is belangrijk om via wifi te kunnen communiceren tussen de E-ink display en de databank. Hiervoor moesten we onderzoeken hoe een HTTP GET request werkt en het hoe we het zelf konden implementeren in onze toepassing.
+Het is belangrijk om via wifi te kunnen communiceren tussen de E-ink display en de databank. Hiervoor moesten we onderzoeken hoe een HTTP GET request werkt en hoe we het zelf konden implementeren in onze toepassing.
 \newline
-We moeten ook een manier hebben om de data te versturen. Hiervoor moest een JSON parser gemaakt worden.
+Er moet ook een manier gevonden worden om de data te versturen. Hiervoor werd een JSON parser gemaakt.
 \newline
 \newline
 Er waren ook enkele kleinere taken:
@@ -172,12 +172,12 @@ Er waren ook enkele kleinere taken:
 \newline
 De databank invullen – Ine
 \newline
-De databank moest opgevuld worden met fictieve data over de lokaalbezetting zodat we een proof of concept konden maken om voor te stellen op de presentatie van ons project.
+De databank werd opgevuld met fictieve data over de lokaalbezetting zodat we een proof of concept konden maken om voor te stellen op de presentatie van ons project.
 \newline
 \newline
 Het verslag en de powerpointpresentatie opstarten – Ine 
 \newline
-Om het verslag te maken heeft iedereen het deel ingevuld waar hij zelf meest aan gewerkt heeft aangevuld. 
+Om het verslag te maken heeft iedereen het deel waar hij zelf het meest aan gewerkt heeft aangevuld. 
 
 \newpage
 
@@ -189,7 +189,7 @@ Om het verslag te maken heeft iedereen het deel ingevuld waar hij zelf meest aan
 Voor het opslaan van de gegevens is er een database opgezet op een Raspberry Pi model B+ door gebruik te maken van phpMyAdmin. Hier draait een SQL server op waarin alle gegevens voor de komende events van verschillende lokalen kunnen opgeslagen worden. Verder zijn alle gegevens van de courses er ook opgeslagen en de algemene info van de rooms. Om ervoor te zorgen dat onze MBED toegang kan krijgen tot deze database hebben we een Wifi Access Point (WAP) op de Raspberry Pi gezet, waarmee de MBED zich kan verbinden via een ESP8266 Wifi chip. Het opvragen van de gegevens door de mbed gebeurt via een GET request op de HTTP poort van de Raspberry Pi (poort 80).
  
 \subsubsection{Database}
-Deze database genaamd roomdb bestaat uit 3 verschillende tables: courses, events en rooms. De structuur van de database en de relaties tussen de verschillende tables staat afgebeeld in figuur \ref{fig:dbstruct}. Op de Raspberry Pi staan verschillende PHP files die ervoor zorgen dat de webserver kan verbinden met de database. Een belangrijke file hierbij is dbConnect.php (zie figuur \ref{fig:dbconnect}), in deze file staan de gegevens die nodig zijn om te kunnen verbinden met de database. In deze  file declareren we verschillende variabelen: \verb|$host|, \verb|$user|, \verb|$password|en \verb|$databse|. Deze worden dan gebruikt in een \verb|mysqli_connect()| commando om een verbinding op te zetten met de databse. Hierna wordt er nog een controle gedaan om te kijken of de verbinding tot stand is gekomen, indien dit niet het geval is dan verkrijgen we een error. Deze code is enkel bedoeld voor tijdens het opzetten van de webserver en de database en dient verwijderd te worden indien de code definitief in gebruik wordt genomen. Als \verb|$host| kiezen we het local host adres 127.0.0.1 omdat de database zich op de Raspberry Pi zelf bevindt. De \verb|$user| en het \verb|$password| zijn specifiek voor elke database en hangen af van welke user je ingesteld hebt op je SQL server. 
+Deze database genaamd roomdb bestaat uit 3 verschillende tables: courses, events en rooms. De structuur van de database en de relaties tussen de verschillende tables staat afgebeeld in figuur \ref{fig:dbstruct}. Op de Raspberry Pi staan verschillende PHP files die ervoor zorgen dat de webserver kan verbinden met de database. Een belangrijke file hierbij is dbConnect.php (zie figuur \ref{fig:dbconnect}), in deze file staan de gegevens die nodig zijn om te kunnen verbinden met de database. In deze  file declareren we verschillende variabelen: \verb|$host|, \verb|$user|, \verb|$password|en \verb|$databse|. Deze worden dan gebruikt in een \verb|mysqli_connect()| commando om een verbinding op te zetten met de databse. Hierna wordt er nog een controle gedaan om te kijken of de verbinding tot stand is gekomen, indien dit niet het geval is wordt er een error gegenereerd. Deze code is enkel bedoeld voor tijdens het opzetten van de webserver en de database en dient verwijderd te worden indien de code definitief in gebruik wordt genomen. Als \verb|$host| wordt het local host adres 127.0.0.1 gebruikt omdat de database zich op de Raspberry Pi zelf bevindt. De \verb|$user| en het \verb|$password| zijn specifiek voor elke database en hangen af van welke user ingesteld werden op de SQL server. 
 \begin{figure}[h]
 	\begin{verbatim}
 	<?php
@@ -213,9 +213,9 @@ Deze database genaamd roomdb bestaat uit 3 verschillende tables: courses, events
 	\label{fig:dbstruct}
 \end{figure}
 \subsubsection{Wifi Access Point op Raspberry Pi}
-Voor het opzetten van de WAP op de Raspberry Pi hebben we een online step-by-step guide gevolgd \cite{RaspberryPiWAP}. De belangrijkste services die we hiervoor installeren op de Raspberry Pi zijn \verb|hostapd| en \verb|dnsmasq|.
+Voor het opzetten van de WAP op de Raspberry Pi werd een online step-by-step guide gevolgd \cite{RaspberryPiWAP}. De belangrijkste services die hiervoor geïnstalleerd werden op de Raspberry Pi zijn \verb|hostapd| en \verb|dnsmasq|.
 \paragraph{DNSmasq} \mbox{}\\ 
-Deze service is in principe gewoon een DHCP (Dynamic Host Configuration Protocol) server. Deze zal ervoor zorgen dat we dynamisch IP adressen kunnen toekennen op ons netwerk zonder dat we alle apparaten manueel moeten verbinden. In de config file van dnsmasq (die zich onder het volgende path bevindt \verb|/etc/dnsmasq.conf|) kennen we een range aan van IP adressen die onze Wifi kan gebruiken om toe te kennen aan apparaten. Verder bepalen we ook hoelang deze IP adressen kunnen gebruikt worden door de apparaten die zich verbinden met het Wifi netwerk. De config file ziet er dan als volgt uit \ref{fig:dnsmasq} .
+Deze service is in principe gewoon een DHCP (Dynamic Host Configuration Protocol) server. Deze zal ervoor zorgen dat een dynamisch IP adres kan toegekend worden op het netwerk zonder dat alle apparaten manueel moeten verbonden worden. In de config file van dnsmasq (die zich onder het volgende path bevindt \verb|/etc/dnsmasq.conf|) wordt een range toegekend van IP adressen die de Wifi kan gebruiken om toe te kennen aan apparaten. Verder wordt ook bepaald hoelang deze IP adressen kunnen gebruikt worden door de apparaten die zich verbinden met het Wifi netwerk. De config file ziet er dan als volgt uit \ref{fig:dnsmasq} .
 \begin{figure}[!h]
 	\begin{verbatim}
 	interface=wlan0
@@ -225,7 +225,7 @@ Deze service is in principe gewoon een DHCP (Dynamic Host Configuration Protocol
 	\label{fig:dnsmasq}
 \end{figure}
 \paragraph{Hostapd} \mbox{}\\
-Deze service zorgt ervoor dat er een WAP wordt opgezet. In de config file van hostapd (die zich onder het volgende path bevindt \verb|/etc/hostapd/hostapd.conf|) stel je het SSID en het wachtwoord in van je WAP. Verder stel je hier ook een bridge in tussen je ethernet verbinding en je wlan0 van je Raspberry Pi. Dit zorgt ervoor dat je zowel via ethernet als via de WAP toegang kan krijgen tot je webserver. In deze file zorgen we ervoor dat we steeds op channel 7 zullen zitten van van de Wifi. We stellen ook de Wifi Protected Acces (WPA) versie in en bepalen welke vorm van management we zullen gebruiken voor het WPA wachtwoord. Voor deze opdracht gebruiken we WPA-PSK wat staat voor Pre-Shared Key. Een wachtwoord bestaat uit minimaal 8 en maximaal 63 tekens. De config file ziet er dan als volgt uit \ref{fig:hostapd} .
+Deze service zorgt ervoor dat er een WAP wordt opgezet. In de config file van hostapd (die zich onder het volgende path bevindt \verb|/etc/hostapd/hostapd.conf|) wordt het SSID en het wachtwoord ingesteld van de WAP. Verder wordt hier ook een bridge ingesteld tussen de ethernet verbinding en de wlan0 van de Raspberry Pi. Dit zorgt ervoor dat er zowel via ethernet als via de WAP toegang kan verkregen worden tot de webserver. Dankzij deze file gebruikt de Wifi steeds channel 7. Ook wordt de Wifi Protected Access (WPA) versie ingesteld en de vorm van management die gebruikt zal worden voor het WPA wachtwoord wordt bepaald. Voor deze opdracht wordt WPA-PSK gebruikt wat staat voor Pre-Shared Key. Een wachtwoord bestaat uit minimaal 8 en maximaal 63 tekens. De config file ziet er dan als volgt uit \ref{fig:hostapd} .
 \begin{figure}[!h]
 	\begin{verbatim}
 	interface=wlan0
@@ -249,14 +249,14 @@ Deze service zorgt ervoor dat er een WAP wordt opgezet. In de config file van ho
 \end{figure}
 \newpage
 \subsubsection{Webserver en GET request}
-De webserver die we op onze Raspberry Pi draaien is een apache 2.4 server die de mogelijkheid heeft om samen te werken met onze SQL database. Voor onze applicatie hebben we slechts vier van de zes aanwezige files nodig: 
+De webserver die op de Raspberry Pi draait is een apache 2.4 server die de mogelijkheid heeft om samen te werken met de SQL database. Voor deze specifieke applicatie worden slechts vier van de zes aanwezige files gebruikt:
 \begin{itemize}
 	\item \verb|dbConnect.php|
 	\item \verb|event.php|
 	\item \verb|room.php|
 	\item \verb|roominfo.php|
 \end{itemize}
-De overige twee files (\verb|index.php| en \verb|showTable.php|) zijn er enkel indien we via een webbrowser toegang willen krijgen tot de lokaalbezetting. Wanneer we een GET request sturen vanuit onze MBED dan slaan we de \verb|index.php| file over. Een GET request ziet er als volgt uit: \\ \verb|http://ip-address/E-ink-room/roominfo.php?roomName=02.85|. \\ We gaan dus rechtstreeks naar \verb|roominfo.php| en geven als variabele het nummer mee van het lokaal waarvan we de info willen verkrijgen.  De inhoud van \verb|dbConnect.php| hebben we hierboven al besproken, dus zullen we er hier niet meer verder op ingaan. \verb|event.php| en \verb|room.php|, zijn hele kleine files die beide \'{e}\'{e}n enkele klasse bevatten. De UML diagramma's voor deze klassen staan in figuur \ref{fig:uml}.
+De overige twee files (\verb|index.php| en \verb|showTable.php|) kunnen nodig zijn indien er via een webbrowser toegang verkregen moet worden tot de lokaalbezetting. Wanneer er een  GET request verstuurd wordt vanuit de MBED, wordt de \verb|index.php| file overgeslagen. Een GET request ziet er als volgt uit: \\ \verb|http://ip-address/E-ink-room/roominfo.php?roomName=02.85|. \\ Er wordt dus rechtstreeks naar \verb|roominfo.php| gegaan en als variabele wordt het nummer meegegeven van het lokaal waarvan de info verkregen moet worden.  De inhoud van \verb|dbConnect.php| werd hierboven al besproken, dus zal hier niet meer verder op ingaan worden. \verb|event.php| en \verb|room.php|, zijn hele kleine files die beide \'{e}\'{e}n enkele klasse bevatten. De UML diagramma's voor deze klassen staan in figuur \ref{fig:uml}.
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.45\textwidth}
@@ -270,9 +270,9 @@ De overige twee files (\verb|index.php| en \verb|showTable.php|) zijn er enkel i
 	\caption{UML diagram}
 	\label{fig:uml}
 \end{figure} \\
-De laatste en tevens ook grootste file is \verb|roominfo.php|. Hierin worden de klassen die in de vorige files gedefinieerd werden gebruikt. Bij onze GET-request geven we een variabele mee die \verb|roomName| genaamd is. Deze slaan we dan op in een variabele die we \verb|$roomName| gaan noemen. Wegens veiligheidsredenen gaan we eerst de door de gebruiker meegegeven variabele sanitizen, dit zorgt ervoor dat er geen SQL code kan geïnjecteerd worden die er eventueel voor kan zorgen dat onze database aangepast wordt zonder dat wij dit willen. De methode die we hiervoor gebruiken is \verb|mysqli_real_escape_string(string $escapestr)|.
+De laatste en tevens ook grootste file is \verb|roominfo.php|. Hierin worden de klassen die in de vorige files gedefinieerd werden gebruikt. Bij het GET-request wordt een variabele meegegeven die \verb|roomName| genaamd is. Deze wordt opgeslagen in een variabele met de naam \verb|$roomName|. Om veiligheidsredenen is het belangrijk om eerst de door de gebruiker meegegeven variabele te sanitizen. Daardoor kan er geen SQL code geïnjecteerd worden die er eventueel voor kan zorgen dat onze database aangepast wordt zonder dat dit de bedoeling is. De methode die hiervoor gebruikt werd is \verb|mysqli_real_escape_string(string $escapestr)|.
 
-De variabele \verb|$roomName| kunnen we nu gebruiken om een query uit te voeren naar onze database om zo het \verb|roomID| en de \verb|roomDescription| te kunnen verkrijgen van het opgevraagde lokaal. Het opvragen van deze gegevens gebeurt volgens de code in figuur \ref{fig:roomsql}. Eerst wordt een statement aangemaakt via de \verb|prepare()| methode. Hierin zetten we de SQL code met de parameters die we willen selecteren en de voorwaarde die aangeeft welke entries van de database mogen opgehaald worden. De waarde van de variabele waarop geselecteerd wordt kennen we later toe met de \verb|bind_param()| methode. De eerste parameter geeft aan dat we selecteren op een variabele van het type String en de tweede parameter is de variabele zelf. Na de \verb|execute()| methode gebruiken we de \verb|bind_result()| methode om de variabelen van de opgehaalde database entry toe te kennen aan de correcte variabelen zodat we ze later kunnen gebruiken.  Het roomID hebben we nodig omdat we dan in onze event table kunnen zoeken naar alle geplande events die het opgegeven roomID bevatten.
+De variabele \verb|$roomName| kan nu gebruikt worden om een query uit te voeren naar de database om zo het \verb|roomID| en de \verb|roomDescription| te kunnen verkrijgen van het opgevraagde lokaal. Het opvragen van deze gegevens gebeurt volgens de code in figuur \ref{fig:roomsql}. Eerst wordt een statement aangemaakt via de \verb|prepare()| methode. Hierin wordt de SQL code gezet met de parameters die moeten geselecteerd worden en de voorwaarde die aangeeft welke entries van de database mogen opgehaald worden. De waarde van de variabele waarop geselecteerd wordt, wordt later toegekend met de \verb|bind_param()| methode. De eerste parameter geeft aan dat we selecteren op een variabele van het type String en de tweede parameter is de variabele zelf. Na de \verb|execute()| methode gebruiken we de \verb|bind_result()| methode om de variabelen van de opgehaalde database entry toe te kennen aan de correcte variabelen zodat ze later gebruikt kunnen worden.  Het roomID is nodig omdat op die manier gezocht kan worden in de event table naar alle geplande events die het opgegeven roomID bevatten.
 
 \begin{figure}
 	\begin{verbatim}
@@ -286,18 +286,15 @@ De variabele \verb|$roomName| kunnen we nu gebruiken om een query uit te voeren 
 	\label{fig:roomsql}
 \end{figure}
 \newpage
-Na het ophalen van het roomID voeren we een SQL query uit om alle entries uit de events table te halen die doorgaan in het door ons opgevraagde lokaal. De resultaten van deze queries steken we dan in arrays, in de volgorde zoals ze uit de table gekomen zijn. Zo kunnen we gemakkelijk de verschillende variabelen opvragen door de indexen te gebruiken van de arrays. Alle elementen van een bepaald event bevinden zich namelijk op de plaats in de array met dezelfde index.De laatste stap is om via de courseID's de courseNames op te gaan vragen in de courses table en dan hebben we alle nodige info beschikbaar om terug te sturen naar de MBED.
+Na het ophalen van het roomID wordt een SQL query uitgevoerd om alle entries uit de events table te halen die doorgaan in het opgevraagde lokaal. De resultaten van deze queries worden gerangschikt in arrays, in dezelfde volgorde als in de table. Zo kan men op een eenvoudige manier de verschillende variabelen opvragen door de indexen te gebruiken van de arrays. Alle elementen van een bepaald event bevinden zich namelijk op de plaats in de array met dezelfde index. Als laatste stap dienen via de courseID's de courseNames opgevraagd te worden in de courses table om zo alle nodige info beschikbaar te hebben om terug te sturen naar de MBED.
 
-Voor we de gegevens opsturen zullen we alle gegevens in een JSON-file steken. Hiervoor maken we een object aan van het type Room. Zoals we kunnen zien in figuur \ref{fig:uml} heeft zo een object 4 objecten. Via de \verb|$myJson  = json_encode($room)| kunnen we het object dan omzetten naar een JSON variabele die we dan terugsturen met het commando \verb|echo "$myJson";|. Deze JSON-file met alle gegevens wordt dan op de MBED verwerkt.
-
-
-\newpage
+Eerst dienen alle gegevens opgestuurd te worden voor ze in een JSON-file kunnen. Hiervoor wordt een object aangemaakt van het type Room. Zoals aangetoond in figuur \ref{fig:uml} heeft dit object 4 objecten. Via de \verb|$myJson  = json_encode($room)| kan het object dan omgezet worden naar een JSON variabele die dan teruggestuurd kan worden met het commando \verb|echo "$myJson";|. Deze JSON-file met alle gegevens wordt dan op de MBED verwerkt.
 
 \subsection{Communicatie tussen de mbed en de database}
 {\scriptsize Geschreven door Stijn}
 \newline
 
-Om het lessenrooster te kunnen printen heeft de mbed gegevens nodig van de database. Er moet dus gecommuniceerd worden tussen de mbed en de database. De mbed heeft de rol van client en vraagt dus die gegevens aan de database, die logischerwijs de rol van server heeft.
+Teneinde het lessenrooster te printen heeft de mbed gegevens nodig van de database. Communicatie tussen de mbed en de database is dus nodig. De mbed heeft de rol van client en vraagt dus die gegevens aan de database, die logischerwijs de rol van server heeft.
 \newline
 
 De communicatie gebeurt via wifi. Op de mbed zit een wi-fi module ESP-WROOM-02 Click \cite{ESP-WROOM-02} die in staat is de data te ontvangen en versturen. In het programma dat loopt op de mbed wordt gebruik gemaakt van 2 functies om gegevens te verkrijgen.
@@ -306,7 +303,7 @@ De communicatie gebeurt via wifi. Op de mbed zit een wi-fi module ESP-WROOM-02 C
 
 Hoe wordt deze verbinding tot stand gebracht?
 
-De eerste functie \verb|init()| maakt verbinding met het wifi access point van de database en gaat als volgt te werk: eerst wordt gecontroleerd dat de mbed een wi-fi module heeft (dit is in ons geval de ESP-WROOM-02). Daarna probeert de mbed aan te melden bij de raspberry pi met een opgegeven \verb|WIFI_SSID| en het daarbij horende opgegeven \verb|WIFI_PASSWORD|. Deze  kunnen eenvoudig worden aangepast in een \verb|.json| file.
+De eerste functie \verb|init()| maakt verbinding met het wifi access point van de database en gaat als volgt te werk: eerst wordt gecontroleerd of de mbed een wi-fi module heeft (dit is in ons geval de ESP-WROOM-02). Daarna probeert de mbed aan te melden bij de raspberry pi met een opgegeven \verb|WIFI_SSID| en het daarbij horende opgegeven \verb|WIFI_PASSWORD|. Deze  kunnen eenvoudig worden aangepast in een \verb|.json| file.
 
 \subsubsection{De gegevens}
 
@@ -314,11 +311,14 @@ Hoe worden de gegevens uit de database verkregen?
 
 De tweede functie \verb|get(IP_ADDRESS, ROOM)| geeft een \verb|JSON_STRING| terug met daarin alle gegevens voor één lokaal. Het \verb|IP address| en \verb|room number| wordt meegegeven met deze functie. Eerst wordt het GET request samengesteld met de gekregen waarden. Daarna wordt een TCPSocket geopend en gekoppeld aan de Wi-Fi interface, waarna een connectie wordt gelegd met de database. Als die connectie er is, wordt het GET request verstuurd naar de database, die daar dan normaal gezien op antwoordt. De mbed leest de data in en slaat ze op in een buffer. Dit is echter nog de ruwe data. De buffer wordt uitgelezen en enkel de nodige gegevens woren opgeslagen in een tweede buffer. Die laatste is een \verb|JSON_STRING| en wordt dus teruggegeven door de functie.
 
+\newpage
+
 \section{Resultaten}
 {\scriptsize Geschreven door Ine}
 \newline
 
-We kunnen uit de databank info van lokaal 02.85 filteren en in een tabel zetten. Zie figuur \ref{fig:vboutput}.
+We zijn er in geslaagd om uit de databank info van lokaal 02.85 filteren en in een tabel zetten. Zie figuur \ref{fig:vboutput}.
+\newline
 
 \begin{figure}[h]
 	\centering
@@ -327,7 +327,8 @@ We kunnen uit de databank info van lokaal 02.85 filteren en in een tabel zetten.
 	\label{fig:vboutput}
 \end{figure}
 
-Wanneer we merkten dat dit werkte, hebben we daar nog data aan toegevoegd. Ook slaan we de data niet meer op in een bestand, omdat we dit moeilijk kunnen doorsturen. Nu kunnen we de info van lokaal 02.85 filteren op 4 april 2019. Zie figuur \ref{fig:vbdata}. Alles staat nu als tekst na elkaar. Dit is gemakkelijker om door te sturen. Eens het doorgestuurd is, kunnen we er opnieuw de juiste data uit filteren en er een tabel van maken om op een overzichtelijke manier op de display weer te geven.
+Wanneer we merkten dat dit werkte, hebben we daar nog data aan toegevoegd. Ook wordt de data niet meer in een bestand opgeslagen, omdat dit moeilijk is om door te sturen. Nu kunnen we de info van lokaal 02.85 filteren op 4 april 2019. Zie figuur \ref{fig:vbdata}. Alles staat nu als tekst na elkaar. Dit is gemakkelijker om door te sturen. Eens het doorgestuurd is, kunnen we er opnieuw de juiste data uit filteren en er een tabel van maken om op een overzichtelijke manier op de display weer te geven.
+\newline
 
 \begin{figure}[h]
 	\centering
@@ -346,6 +347,30 @@ We kunnen ook een figuur op de E-ink display afbeelden. Figuur \ref{fig:vbscherm
 \end{figure}
 
 De database en het accesspoint waren relatief snel opgezet. Ook iets afbeelden op de display ging relatief vlot. Het moeilijkste was om de data te kunnen versturen naar de display. Het was ook niet eenvoudig om een framebuffer te maken, omdat we dachten dat het niet mogelijk was om een buffer te maken van het hele scherm. We hebben het scherm dus moeten verdelen zodat we voor elk stuk apart een buffer konden maken en zo het scherm stuk per stuk up te daten.
+\newline
+\newline
+
+Uiteindelijk is in figuur \ref{fig:res} te zien wat het resultaat van dit project is. Links (\ref{fig:concept}) is te zien wat het doel van het project was. Rechts (\ref{fig:result}) is het resultaat te zien wat wij hebben kunnen realiseren.
+
+Hier is te zien dat het gelukt is om de verschillende zaken op het scherm te zetten die we op voorhand bedacht hadden. Op de tijdslijn is met rood aangeduid wanneer het lokaal niet vrij is. In dit voorbeeld is het lokaal dus niet bezet tot 9:30. Daarna zijn wel nog lessen gepland die ook zichtbaar zijn. 
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{concept}
+		\caption{concept}
+		\label{fig:concept}
+	\end{subfigure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{resultaat}
+		\caption{resultaat}
+		\label{fig:result}
+	\end{subfigure}
+	\label{fig:res}
+	\caption{Het resultaat van dit project}
+\end{figure}
 
 \newpage
 
@@ -360,6 +385,12 @@ We hebben veel tijd verloren door te zoeken naar hoe we een framebuffer van heel
 \newline
 
 Verder zouden we ook tijdens het zoeken naar oplossingen proberen meer geduld te hebben. Als er problemen waren met dingen die we niet begrepen, zouden we moeten efficiënter zoeken naar oplossingen. We zouden kunnen één manier van werken proberen volledig uit te werken en te begrijpen, in plaats van telkens iets kleins niet lukt, een volledig nieuwe manier te zoeken.
+\newline
+
+Tijdens het project hebben we ondervonden dat de database elke les een nieuw IP adres kreeg. Dit heeft af en toe voor problemen gezorgd. Het zou dus gemakkelijker zijn als we de database een statisch IP adres zouden geven. 
+\newline
+
+Als we nog wat meer tijd hadden gehad, zouden we kunnen zoeken naar een manier om de JSON buffer automatisch af te laten kappen wanneer alle bruikbare data er in zit. Tot nu toe krijgt de buffer een vaste lengte, en de plaats die niet gebruikt wordt, wordt opgevuld met onleesbare tekens. Dit zou dan niet meer gebeuren.
 
 \newpage
 
