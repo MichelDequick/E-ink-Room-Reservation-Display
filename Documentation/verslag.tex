@@ -178,6 +178,16 @@ De databank werd opgevuld met fictieve data over de lokaalbezetting zodat we een
 Het verslag en de powerpointpresentatie opstarten – Ine 
 \newline
 Om het verslag te maken heeft iedereen het deel waar hij zelf het meest aan gewerkt heeft aangevuld. 
+\newline
+
+In figuur \ref{fig:aanpak} is te zien hoe de verschillende delen aan elkaar gelinkt zijn.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth]{Solution_workflow}
+	\caption{aanpak}
+	\label{fig:aanpak}
+\end{figure}
 
 \newpage
 
@@ -311,6 +321,25 @@ Hoe worden de gegevens uit de database verkregen?
 
 De tweede functie \verb|get(IP_ADDRESS, ROOM)| geeft een \verb|JSON_STRING| terug met daarin alle gegevens voor één lokaal. Het \verb|IP address| en \verb|room number| wordt meegegeven met deze functie. Eerst wordt het GET request samengesteld met de gekregen waarden. Daarna wordt een TCPSocket geopend en gekoppeld aan de Wi-Fi interface, waarna een connectie wordt gelegd met de database. Als die connectie er is, wordt het GET request verstuurd naar de database, die daar dan normaal gezien op antwoordt. De mbed leest de data in en slaat ze op in een buffer. Dit is echter nog de ruwe data. De buffer wordt uitgelezen en enkel de nodige gegevens woren opgeslagen in een tweede buffer. Die laatste is een \verb|JSON_STRING| en wordt dus teruggegeven door de functie.
 
+\subsection{JSON parsing}
+{\scriptsize Geschreven door Michel}
+\newline
+
+Voor het parsen van de ontvangen JSON strings wordt er gebruik gemaakt Samuel Mokrani’s MedJSONValue library. De library biedt de mogelijkheid aan om een string naar een MbedJSONValue object te parsen. Uit het bekomen object kan dan gemakkelijk aan de hand van de JSON keys de warden gehaald worden en derect getypecast worden naar het gedefineerde type. In tegenstelling met vele andere librarys kan deze wel overweg met JSON arrays van objecten, meeste librarys ondersteunen alleen het parsen van single-type arrays. Een handige feature is date r ook makkelijk nagegaan kan worden hoeveel elementen een array bevat. \ref{fig:json}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth]{json}
+	\label{fig:json}
+	\caption{overzicht van de json parser}
+\end{figure}
+
+\subsection{E-paper display}
+{\scriptsize Geschreven door Michel}
+\newline
+
+De driver is gebaseerd op een arduino library die door de producent van de display beschikbaar gesteld is geweest. Deze werdt geport naar MBED. Aan de hand van een proof of concept art is er besloten hoe het scherm ingedeeldt wordt. Het tekenen van de objecten gebeurt in een lus die telkens een klein deel van het scherm gaat renderen. Dit is zo besloten zodat de beeld buffer variable kan gemaakt worden om RAM gegeugen uit te sparen. Na het renderen van een sub-frame wordt die naar de S-RAM van het beeldscherm geschreven langs de SPI bus. Eenmaal alle sub-frames gerendert en weggeschreven zijn wordt het signal gegeven aan de display om zijn S-RAM te displayen.
+
 \newpage
 
 \section{Resultaten}
@@ -339,6 +368,8 @@ Wanneer we merkten dat dit werkte, hebben we daar nog data aan toegevoegd. Ook w
 
 We kunnen ook een figuur op de E-ink display afbeelden. Figuur \ref{fig:vbscherm} is een voorbeeld van voor we de data uit de databank konden doorsturen. Hier staan dus nog geen lessen in, maar het toont de lay-out van de display.
 \newline
+\newline
+
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.75\textwidth]{vbScherm}
@@ -368,8 +399,8 @@ Hier is te zien dat het gelukt is om de verschillende zaken op het scherm te zet
 		\caption{resultaat}
 		\label{fig:result}
 	\end{subfigure}
-	\label{fig:res}
 	\caption{Het resultaat van dit project}
+	\label{fig:res}
 \end{figure}
 
 \newpage
